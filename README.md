@@ -1,5 +1,9 @@
 # netmetaDatasets
 
+<!-- badges: start -->
+[![R-CMD-check](https://github.com/OWNER/REPO/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/OWNER/REPO/actions/workflows/R-CMD-check.yaml)
+<!-- badges: end -->
+
 `netmetaDatasets` is a devtools-friendly R package that curates published
 network meta-analysis (NMA) case studies alongside metadata and
 reproducible processing scripts. The package aims to become the largest
@@ -104,10 +108,15 @@ originate from different R packages.
 - The installation snippet in this README uses the placeholder GitHub
   path `example/netmetaDatasets`. Replace it with the actual repository
   slug before calling `devtools::install_github()`.
+- The status badge above assumes the repository lives at
+  `OWNER/REPO`. Update the badge URL once you push to your GitHub
+  account so it reflects the actual workflow results.
 - Automated checks such as `devtools::check()` or the testthat suite have
   not been executed in this development environment because R is not
   available in the container. Run those checks locally before relying on
-  the package in production work.
+  the package in production work. The new GitHub Actions workflow will
+  execute `R CMD check` once the repository is published with a valid
+  slug.
 
 ## Contributing datasets
 
