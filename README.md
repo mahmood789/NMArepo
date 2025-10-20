@@ -90,6 +90,25 @@ canonical column names (`log_hazard_ratio`, `se_log_hazard_ratio`, etc.)
 which means downstream code can rely on a single schema even when data
 originate from different R packages.
 
+### Current limitations
+
+- Only the three CSV files listed above ship with this repository. Every
+  other entry in `inst/extdata/datasets.csv` points to a dataset that is
+  expected to live in an external CRAN package; if those package/dataset
+  combinations do not exist or have been renamed upstream,
+  `load_nma_dataset()` and `audit_nma_datasets()` will return errors.
+- The registry has not been de-duplicated or independently validated. It
+  is possible (and likely) that multiple rows reference the same evidence
+  set or cite placeholder metadata copied from package indices rather than
+  the original publications.
+- The installation snippet in this README uses the placeholder GitHub
+  path `example/netmetaDatasets`. Replace it with the actual repository
+  slug before calling `devtools::install_github()`.
+- Automated checks such as `devtools::check()` or the testthat suite have
+  not been executed in this development environment because R is not
+  available in the container. Run those checks locally before relying on
+  the package in production work.
+
 ## Contributing datasets
 
 1. Fork the repository and create a new branch.
